@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Programma's{% endblock %}
+
+{% block content %}
+<h1>Programma's</h1>
+{% if program_list %}
+    <ul>
+    {% for program in program_list %}
+        <li><a href="/program/{{ program.id }}/">{{ program.party }} programma voor {{ program.date }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No parties are available.</p>
+{% endif %}
+{% endblock %}

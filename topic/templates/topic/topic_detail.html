@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Topic {{topic.name}}{% endblock %}
+
+{% block content %}
+	{% if topic %}
+		<div id="program">
+			<h1>{{topic.name}}</h1>
+			{% for selection in topic.selections.all %}
+				<h3>
+					{{ selection.paragraph.section.program.party.name}}
+					{{ selection.paragraph.section.parent.program.party.name}}
+					{{ selection.paragraph.section.parent.parent.program.party.name}}
+				</h3>
+				<p>{{ selection.prefix }} <span class="highlight">{{ selection.text }}</span>{{ selection.postfix }}</p>
+			{% endfor %}
+		</div>
+	{% else %}
+		<p>No topic available.</p>
+	{% endif %}
+{% endblock %}

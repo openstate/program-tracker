@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Het programma {{ program.name }}{% endblock %}
+
+{% block content %}
+	{% if program %}
+		<div id="program">
+		
+			<p><em>Selecteer een stuk tekst om een onderwerp op te geven</em></p>
+		
+			<h1>{{ program.party.name }}</h1>
+			{% for section in program.sections.all %}
+				{% include "core/section.html" with section=section head=2 %}
+			{% endfor %}
+		</div>
+		<div id="topiclabel">
+			Vul hier een label in: <br />
+			<form method="post" action="/topic/addLabel/">{% csrf_token %}
+				<input type="text" name="label" /> <input type="submit" value="Ok">
+				<input type="hidden" name="start" />
+				<input type="hidden" name="end" />
+				<input type="hidden" name="pid" />
+			</form>
+		</div>
+	{% else %}
+		<p>No sections available.</p>
+	{% endif %}
+{% endblock %}
