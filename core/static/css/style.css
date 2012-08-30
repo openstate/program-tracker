@@ -1,0 +1,115 @@
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
+
+html, body 
+{
+	background: lightgrey;
+    font-family: 'Droid Sans', sans-serif;
+    font-size: 9pt;
+}
+
+#content 
+{
+	margin-left: 170px;
+	background:white;
+	border-radius: 5px;
+	box-shadow: 4px 4px 16px 1px black;
+	width:70em;
+}
+
+#program
+{
+	width: 45em;
+	margin-right: 200px;
+	border-right: 2px dashed black;
+	padding: 10px;
+	position:relative;
+}
+
+.p
+{
+	position:relative;
+}
+
+.insert
+{
+	font-style:italic;
+	border: 1px grey solid;
+	margin: 10px;
+	padding: 10px;
+}
+
+.bulletlist>.head:after
+{
+	content: ":";
+}
+
+.bulletlist>.p>p 
+{
+	margin-left:20px;
+	margin-top:0.5em;
+	margin-bottom:0.5em;
+}
+
+.bulletlist>.p>p:before
+{
+	content: '•  ';
+}
+
+.intro>.p>p
+{
+	font-weight:bold;
+}
+
+.topics
+{
+	width: 200px;
+	position:absolute;
+	right:-224px;
+	top:0;
+}
+
+.topic
+{
+	width: 180px;
+	float:right;
+	padding: 3px;
+	background: #ffccff;
+	box-shadow:5px 5px 5px 1px grey;
+	margin:1px;
+	border-radius:2px;
+}
+
+.topic:hover
+{
+	background: pink;
+}
+
+
+#sidebar 
+{
+	width: 160px;
+	float:left;
+}
+
+.highlight
+{
+	background: pink;
+	position:relative;
+}
+
+#topiclabel
+{
+	display:none;
+	position:absolute;
+	background: white;
+	padding: 10px;
+	border-radius: 5px;
+	box-shadow: 4px 4px 16px 1px black;
+	z-index:100;
+}
+
+#login
+{
+	margin: 10px;
+	text-align:right;
+}

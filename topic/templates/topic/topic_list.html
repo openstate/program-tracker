@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Topic's{% endblock %}
+
+{% block content %}
+<h1>Topic's</h1>
+{% if topic_list %}
+    <ul>
+    {% for topic in topic_list %}
+        <li><a href="/topic/{{ topic.id}}/">{{ topic.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No topics are available.</p>
+{% endif %}
+{% endblock %}

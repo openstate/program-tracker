@@ -1,0 +1,49 @@
+{% load static %}
+{% get_static_prefix as STATIC_URL %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" />
+    <title>{% block title %}Verkiezingsprogrammas{% endblock %}</title>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.wrapSelection.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.form.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/action.js"></script>
+</head>
+
+<body>
+	
+	<div id="login">
+		{% if user.is_authenticated %}
+			Je bent ingelogd als {{ user.username }}. <a href="/accounts/logout/?next=/">Uitloggen</a>
+		{% else %}
+			<form action='/accounts/login/' method='post'>
+				{% csrf_token %}
+				<label for="username">Gebruikersnaam</label>
+				<input type="text" name="username" value="" id="username">
+				<label for="password">Wachtwoord</label>
+				<input type="password" name="password" value="" id="password">
+				
+				<input type="submit" value="login" />
+				<input type="hidden" name="next" value="{{ request.get_full_path }}" />
+			</form>
+		{% endif %}
+	
+	</div>
+	
+    <div id="sidebar">
+        {% block sidebar %}
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/topic/">Topics</a></li>
+        </ul>
+        {% endblock %}
+    </div>
+
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<div id="{{paragraph.id}}" class="p">
+	<p>{{ paragraph.text }}</p>
+	<div class="topics">
+		{% for selection in paragraph.selections.all %}
+	        {% if selection.user %}
+				<div class="topic" id="{{selection.id}}" 
+					topic:start="{{selection.startLetter}}"
+					topic:end="{{selection.endLetter}}">{{selection.topic.name}}</div>
+			{% endif %}
+		{% endfor %}
+	</div>
+</div>
