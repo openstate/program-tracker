@@ -16,4 +16,7 @@ urlpatterns = patterns('core.views',
             model=Program,
             template_name='core/program.html'),
             name='program_view'),
+    url(r'^add/$', 'upload_program'),
+    url(r'^words/$', 'words'),
+
 )

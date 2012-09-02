@@ -30,7 +30,8 @@ $(document).ready(function(){
 		$('input[name=start]').val(myRange.startOffset);
 		$('input[name=end]').val(myRange.endOffset);
 		$('input[name=pid]').val(this.id);
-		$(document).wrapSelection().addClass('highlight').append($('#topiclabel'));
+		$(document).wrapSelection().addClass('highlight')
+		$('.highlight').last().append($('#topiclabel'));
 		$('#topiclabel').show();
 		$('input[name=label]').focus();
 	});

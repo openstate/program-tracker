@@ -3,7 +3,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.views.generic import DetailView, ListView
 from django.contrib.auth.views import login, logout
 
-from core.models import Program
+from core.models import Program, Section
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -20,6 +20,11 @@ urlpatterns = patterns('',
     
     url(r'^program/', include('core.urls')),
     url(r'^topic/', include('topic.urls')),
+    
+     url(r'^section/(?P<pk>\d+)/$', DetailView.as_view(
+            model=Section,
+            template_name='core/section.html'),
+            name='section_view'),
 
 
     # Uncomment the admin/doc line below to enable admin documentation:

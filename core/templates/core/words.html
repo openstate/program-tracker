@@ -1,0 +1,6 @@
+{% for word in words %}{{ word }}
+{% endfor %} 
+
+
+{% for count in counts %}{{ count.number }} {% for index, c in count.pcounts %}{{ index }}:{{c}} {% endfor %}
+{% endfor %} 

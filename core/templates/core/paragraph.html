@@ -1,5 +1,7 @@
+{% load markup %}
+
 <div id="{{paragraph.id}}" class="p">
-	<p>{{ paragraph.text }}</p>
+	<p>{{ paragraph.text|markdown }}</p>
 	<div class="topics">
 		{% for selection in paragraph.selections.all %}
 	        {% if selection.user %}
