@@ -67,7 +67,7 @@ $(document).ready(function(){
 			if(data.id)
 			{
 				var element = $('#topiclabel').parents('div.p').children('.topics');
-				var newLabel = $('<div class="topic" id="'+data.id+'"  topic:start="'+data.start+'" topic:end="'+data.end+'">'+data.label+'</div>');
+				var newLabel = $('<div style="background-color: '+data.source_color+'" class="topic" id="'+data.id+'"  topic:start="'+data.start+'" topic:end="'+data.end+'" title="'+data.topic_desc+'"><a href="/topic/'+data.topic_id+'/">'+data.label+'</a></div>');
 				newLabel.mouseover(Topic.mouseout)
 					.mouseout(Topic.hideHighlight)
 					.appendTo(element);
@@ -79,4 +79,9 @@ $(document).ready(function(){
 	
 	//hovers for topics
 	$('.topic').hover(Topic.mouseover, Topic.hideHighlight);
+	
+	
+	$( "input[name=label]" ).autocomplete({
+			source: "/topic/getTopics/"
+	});
 });

@@ -1,14 +1,14 @@
 {% load markup %}
 
 <div id="{{paragraph.id}}" class="p">
-	<p>{{ paragraph.text|markdown }}</p>
+	{{ paragraph.text|markdown }}
 	<div class="topics">
 		{% for selection in paragraph.selections.all %}
-	        {% if selection.user %}
-				<div class="topic" id="{{selection.id}}" 
+	       
+				<div style="background-color: {{selection.source.color}}" class="topic" id="{{selection.id}}" 
 					topic:start="{{selection.startLetter}}"
-					topic:end="{{selection.endLetter}}">{{selection.topic.name}}</div>
-			{% endif %}
+					topic:end="{{selection.endLetter}}" 
+					title="{{selection.topic.description}}"><a href="/topic/{{selection.topic.id}}/">{{selection.topic.name}}</a></div>
 		{% endfor %}
 	</div>
 </div>

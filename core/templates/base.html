@@ -1,16 +1,13 @@
 {% load static %}
 {% get_static_prefix as STATIC_URL %}
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl" lang="nl">
 <head>
-    <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" />
     <title>{% block title %}Verkiezingsprogrammas{% endblock %}</title>
-    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.8.0.min.js"></script>
-    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.wrapSelection.js"></script>
-    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.form.js"></script>
-    <script type="text/javascript" src="{{ STATIC_URL }}js/action.js"></script>
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/smoothness/jquery-ui-1.8.23.custom.css" />
+    <script type="text/javascript" src="{{ STATIC_URL }}js/head.load.min.js"></script>
 </head>
 
 <body>
@@ -48,5 +45,14 @@
     <div id="content">
         {% block content %}{% endblock %}
     </div>
+    
+    <script type="text/javascript" >
+    	head.js("{{ STATIC_URL }}js/jquery-1.8.0.min.js"
+    		   ,"{{ STATIC_URL }}js/jquery.wrapSelection.js"
+    		   ,"{{ STATIC_URL }}js/jquery.form.js"
+    		   ,"{{ STATIC_URL }}js/jquery-ui-1.8.23.custom.min.js"
+    		   ,"{{ STATIC_URL }}js/action.js"
+    		   );
+    </script>
 </body>
 </html>

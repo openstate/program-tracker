@@ -6,18 +6,18 @@ admin.site.register(SectionType)
 
 
 class ParagraphInline(admin.TabularInline):
-    model = Paragraph
-    extra = 3
+	model = Paragraph
+	extra = 3
 
 class SectionAdmin(admin.ModelAdmin):
-    inlines = [ParagraphInline]
-    list_filter = ['program', 'parent']
-    list_display = ('name', 'parent', 'programf', 'order')
-    list_editable = ['order']
-    
+	inlines = [ParagraphInline]
+	list_filter = ['program', 'parent']
+	list_display = ('name', 'parent', 'programf', 'order')
+	list_editable = ['order']
+	
 class ProgramAdmin(admin.ModelAdmin):
-    list_filter = ['party', 'date']
-    list_display = ('name', 'party', 'date')
+	list_filter = ['party', 'date']
+	list_display = ('name', 'party', 'date')
 
 
 admin.site.register(Section, SectionAdmin)

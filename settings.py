@@ -122,6 +122,10 @@ INSTALLED_APPS = (
     'django.contrib.markup',
     'core',
     'topic',
+    'lda',
+    'sicco',
+    'keywords',
+    'importdata',
     'south',
 )
 

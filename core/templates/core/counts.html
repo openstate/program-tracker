@@ -1,0 +1,2 @@
+{% for count in counts %}{% if count.number > 1 %}{{ count.number }} {% for index, c in count.pcounts %}{{ index }}:{{c}} {% endfor %}
+{% endif %}{% endfor %} 
