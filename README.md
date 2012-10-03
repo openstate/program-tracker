@@ -16,10 +16,18 @@ jquery + plugins (included): http://jquery.com/
 installation
 ============
 
-1. git clone
-2.
+  1. git clone
+  2. mkvirutalenv programtracker
+  3. workon programtracker
+  4. pip install -r requirements.txt
+  5. cp programtracker/settings\_local.py.example programtracker/settings\_local.py
+  6. edit your local settings
+  7. ./manage.py syncdb
+  8. ./manage.py migrate
+  9. ./manage.py runserver
 
-
+license
+=======
 	This file is part of Program-tracker.
 
     Program-tracker is free software: you can redistribute it and/or modify
