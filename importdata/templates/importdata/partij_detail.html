@@ -1,0 +1,10 @@
+{% load replace %}
+{"head": "{{partij.titel}}", "sub": [ 
+    {% for c in partij.chapters.all|dictsort:"volgorde" %} 
+        {"head": "{{c.hoofdstuk}}", "sub": [ 
+            {% for p in c.paragraphs.all|dictsort:"volgorde" %} 
+                {"head": "{{p.kop}}", "sub": [ {{p.tekst|fix}} ]},  
+            {% endfor %}{}  
+        ]}, 
+    {% endfor %} {}
+]}

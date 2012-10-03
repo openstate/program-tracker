@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Import Partijen{% endblock %}
+
+{% block content %}
+<h1>Partijen</h1>
+{% if partij_list %}
+    <ul>
+    {% for partij in partij_list %}
+        <li><a href="/import/{{ partij.id}}/">{{ partij.partij }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No topics are available.</p>
+{% endif %}
+{% endblock %}
