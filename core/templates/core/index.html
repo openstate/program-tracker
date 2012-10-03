@@ -7,7 +7,7 @@
 {% if program_list %}
     <ul>
     {% for program in program_list %}
-        <li><a href="/program/{{ program.id }}/">{{ program.party }} programma voor {{ program.date }}</a></li>
+        <li><a href="/program/{{ program.id }}/">{{ program.party }}: {{program.name}} ({{ program.date }})</a></li>
     {% endfor %}
     </ul>
 {% else %}

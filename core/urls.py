@@ -16,5 +16,4 @@ urlpatterns = patterns('core.views',
 			queryset=Program.objects.select_related(),
 			template_name='core/program.html'),
 			name='program_view'),
-	url(r'^add/$', 'upload_program'),
 )
