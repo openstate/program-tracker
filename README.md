@@ -13,7 +13,11 @@ Dependencies:
 south: http://south.aeracode.org/
 jquery + plugins (included): http://jquery.com/
 
+installation
+============
 
+1. git clone
+2.
 
 
 	This file is part of Program-tracker.
