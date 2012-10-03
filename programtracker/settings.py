@@ -1,4 +1,7 @@
 # Django settings for program-tracker project.
+import os
+
+PROJECT_DIR = lambda base : os.path.abspath(os.path.join(os.path.dirname(__file__), '../', base).replace('\\','/'))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
