@@ -12,7 +12,7 @@ class ParagraphInline(admin.TabularInline):
 class SectionAdmin(admin.ModelAdmin):
 	inlines = [ParagraphInline]
 	list_filter = ['program', 'parent']
-	list_display = ('name', 'parent', 'programf', 'order')
+	list_display = ('name', 'parent', 'order')
 	list_editable = ['order']
 	
 class ProgramAdmin(admin.ModelAdmin):

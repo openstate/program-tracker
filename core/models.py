@@ -14,7 +14,7 @@ class Program(models.Model):
 	date = models.DateField()
 	party = models.ForeignKey(Party, related_name='programs')
 	name = models.CharField(max_length=200, default='')
-	section = models.OneToOneField('core.Section', related_name='program_root')
+	section = models.OneToOneField('core.Section', related_name='program_root', null=True, on_delete=models.SET_NULL)
 	
 	class Meta:
 		get_latest_by = "date"
@@ -44,13 +44,7 @@ class Section(models.Model):
 
 	def __unicode__(self):
 		return u'Sectie %s uit %s' % (self.name, self.program)
-		
-	def programf(self):
-		parent = self.parent
-		while parent.parent:
-			parent = parent.parent
-		
-		return parent.program_root
+
 	
 	@property
 	def text(self):
