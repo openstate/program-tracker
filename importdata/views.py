@@ -79,7 +79,7 @@ def upload_program(request, file, program_id):
 
 
 
-    json_data=open('/home/hiram/program-tracker/%s.json' % file)
+    json_data=open('/home/hiram/program-tracker/programmas/%s.json' % file)
     data = simplejson.load(json_data)
     json_data.close()
     
