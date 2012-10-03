@@ -1,23 +1,28 @@
 # -*- coding: utf-8 -*-
+import json
+import re
+import shlex, subprocess, pickle
+
+from subprocess import CalledProcessError
+from string import split, translate, maketrans, lower
+from collections import defaultdict
+
 from django.template import Context, loader
+from django.conf import settings
+from django.http import HttpResponse
+from django.shortcuts import render_to_response, get_object_or_404, get_list_or_404
+from django.utils import simplejson
+
 from core.models import Party
 from core.models import Section, SectionType
 from core.models import Paragraph
 from core.models import Program
-from topic.models import Topic, Selection, Source
-from django.http import HttpResponse
-from django.shortcuts import render_to_response, get_object_or_404, get_list_or_404
-import json
-import re
-import shlex, subprocess, pickle
-from subprocess import CalledProcessError
-from string import split, translate, maketrans, lower
-from django.utils import simplejson
-from collections import defaultdict
 
-path = "/home/hiram/program-tracker/algorithms/"
+from topic.models import Topic, Selection, Source
+
+path = settings.PROJECT_DIR("algorithms") + "/"
 algorithmname = "lda"
-common = set(x.strip().lower() for x in open('/home/hiram/program-tracker/top10000nl.txt'))
+common = set(x.strip().lower() for x in open(settings.PROJECT_DIR("words") + '/top10000nl.txt'))
 for p in Party.objects.all():
 	common.add(p.name.lower())
 ttable = dict.fromkeys(map(ord, ',.;:()‘"\'?!@#$/*')+[0x201c, 0x201d, 0x2018, 0x2019, 0x2013], None)

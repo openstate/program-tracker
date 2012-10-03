@@ -1,4 +1,7 @@
 # Django settings for program-tracker project.
+import os
+
+PROJECT_DIR = lambda base : os.path.abspath(os.path.join(os.path.dirname(__file__), '../', base).replace('\\','/'))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -8,17 +11,6 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'deb42924n2_progtrack',                      # Or path to database file if using sqlite3.
-        'USER': 'deb42924n2_pt',                      # Not used with sqlite3.
-        'PASSWORD': '488s$dg878ddd[f{6GX',                  # Not used with sqlite3.
-        'HOST': 's86.webhostingserver.nl',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-    }
-}
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -67,12 +59,26 @@ STATIC_URL = '/static/'
 # Examples: "http://foo.com/static/admin/", "/static/admin/".
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 
+from settings_local import *
+
 # Additional locations of static files
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
 )
+
+# Databases
+DATABASES = {
+    'default': {
+        'ENGINE': DB_ENGINE, # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': DB_NAME,                      # Or path to database file if using sqlite3.
+        'USER': DB_USER,                      # Not used with sqlite3.
+        'PASSWORD': DB_PASSWORD,                  # Not used with sqlite3.
+        'HOST': DB_HOST,                      # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': DB_PORT,                      # Set to empty string for default. Not used with sqlite3.
+    }
+}
 
 # List of finder classes that know how to find static files in
 # various locations.
@@ -100,7 +106,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'program-tracker.urls'
+ROOT_URLCONF = 'programtracker.urls'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -125,7 +131,7 @@ INSTALLED_APPS = (
     'lda',
     'sicco',
     'keywords',
-    'importdata',
+#    'importdata',
     'south',
 )
 

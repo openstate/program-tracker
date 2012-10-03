@@ -1,27 +1,32 @@
 # -*- coding: utf-8 -*-
+import json
+import re
+import shlex, subprocess, pickle, math
+
+from pickle import dumps
+from subprocess import CalledProcessError
+from string import split, translate, maketrans, lower
+from collections import defaultdict
+
+from django.utils import simplejson
+from django.conf import settings
 from django.template import Context, loader
+from django.http import HttpResponse
+from django.shortcuts import render_to_response, get_object_or_404, get_list_or_404
+
 from core.models import Party
 from core.models import Section, SectionType
 from core.models import Paragraph
 from core.models import Program
-from topic.models import Topic, Selection, Source
-from django.http import HttpResponse
-from django.shortcuts import render_to_response, get_object_or_404, get_list_or_404
-import json
-import re
-import shlex, subprocess, pickle, math
-from pickle import dumps
-from subprocess import CalledProcessError
-from string import split, translate, maketrans, lower
-from django.utils import simplejson
-from collections import defaultdict
 
-path = "/home/hiram/program-tracker/algorithms/"
+from topic.models import Topic, Selection, Source
+
+path = settings.PROJECT_DIR("algorithms") + "/"
 algorithmname = "keywords"
 
 
 def addSelections(request):
-	common = set(x.strip().lower() for x in open('/home/hiram/program-tracker/top100nl.txt'))
+	common = set(x.strip().lower() for x in open(settings.PROJECT_DIR("words") + '/top100nl.txt'))
 	
 	for p in Party.objects.all():
 		common.add(p.name.lower())
