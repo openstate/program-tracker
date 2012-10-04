@@ -3,6 +3,8 @@ from django.db import models
 # Create your models here.
 class Party(models.Model):
 	name = models.CharField(max_length=200)
+	full_name = models.CharField(max_length=200)
+	pm_id = models.CharField(max_length=100)
 	
 	class Meta:
 		verbose_name_plural = "parties"
