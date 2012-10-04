@@ -17,8 +17,8 @@ installation
 ============
 
   1. git clone  
-# 121004 inc repository it should say: "git clone https://github.com/hmvp/program-tracker.git"
-  2. mkvirutalenv programtracker
+# 121004 inc repository it should say: "git clone git@github.com:hmvp/program-tracker.git"
+  2. mkvirtualenv programtracker
 # if the command is not found, make sure you add stuff to your .profile and have virtualenv installed. See:
 # http://stackoverflow.com/questions/9520887/mkvirtualenv-no-site-packages-command-getting-command-not-found-error
   3. workon programtracker
