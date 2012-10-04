@@ -1,0 +1,401 @@
+[
+  {
+    "pk": 1,
+    "model": "core.party",
+    "fields": {
+      "fullName": "GroenLinks",
+      "name": "GroenLinks",
+      "pm_id": "nl.p.gl"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "core.party",
+    "fields": {
+      "fullName": "",
+      "name": "PVV",
+      "pm_id": ""
+    }
+  },
+  {
+    "pk": 2,
+    "model": "core.party",
+    "fields": {
+      "fullName": "",
+      "name": "PvdD",
+      "pm_id": ""
+    }
+  },
+  {
+    "pk": 4,
+    "model": "core.party",
+    "fields": {
+      "fullName": "Socialistische Partij",
+      "name": "SP",
+      "pm_id": "nl.p.sp"
+    }
+  },
+  {
+    "pk": 5,
+    "model": "core.party",
+    "fields": {
+      "fullName": "Christen-Democratisch Appel",
+      "name": "CDA",
+      "pm_id": "nl.p.cda"
+    }
+  },
+  {
+    "pk": 6,
+    "model": "core.party",
+    "fields": {
+      "fullName": "Partij van de Arbeid",
+      "name": "PvdA",
+      "pm_id": "nl.p.pvda"
+    }
+  },
+  {
+    "pk": 7,
+    "model": "core.party",
+    "fields": {
+      "fullName": "Democraten '66",
+      "name": "D66",
+      "pm_id": "nl.p.d66"
+    }
+  },
+  {
+    "pk": 8,
+    "model": "core.party",
+    "fields": {
+      "fullName": "Volkspartij voor Vrijheid en Democratie",
+      "name": "VVD",
+      "pm_id": "nl.p.vvd"
+    }
+  },
+  {
+    "pk": 9,
+    "model": "core.party",
+    "fields": {
+      "fullName": "",
+      "name": "CU",
+      "pm_id": ""
+    }
+  },
+  {
+    "pk": 10,
+    "model": "core.party",
+    "fields": {
+      "fullName": "",
+      "name": "PvdD",
+      "pm_id": ""
+    }
+  },
+  {
+    "pk": 11,
+    "model": "core.party",
+    "fields": {
+      "fullName": "",
+      "name": "50Plus",
+      "pm_id": ""
+    }
+  },
+  {
+    "pk": 12,
+    "model": "core.party",
+    "fields": {
+      "fullName": "Staatkundig Gereformeerde Partij",
+      "name": "SGP",
+      "pm_id": "nl.p.sgp"
+    }
+  },
+  {
+    "pk": 13,
+    "model": "core.party",
+    "fields": {
+      "fullName": "Centrum Democraten",
+      "name": "CD",
+      "pm_id": "nl.p.cd"
+    }
+  },
+  {
+    "pk": 14,
+    "model": "core.party",
+    "fields": {
+      "fullName": "Gereformeerd Politiek Verbond",
+      "name": "GPV",
+      "pm_id": "nl.p.gpv"
+    }
+  },
+  {
+    "pk": 15,
+    "model": "core.party",
+    "fields": {
+      "fullName": "Reformatorische Politieke Federatie",
+      "name": "RPF",
+      "pm_id": "nl.p.rpf"
+    }
+  },
+  {
+    "pk": 16,
+    "model": "core.party",
+    "fields": {
+      "fullName": "Algemeen Ouderen Verbond",
+      "name": "AOV",
+      "pm_id": "nl.p.aov"
+    }
+  },
+  {
+    "pk": 1,
+    "model": "core.program",
+    "fields": {
+      "date": "2012-09-12",
+      "party": 1,
+      "section": 3447,
+      "name": "Groene kansen voor Nederland"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "core.program",
+    "fields": {
+      "date": "2012-09-12",
+      "party": 3,
+      "section": 3426,
+      "name": "H\u00fan Brussel, \u00f3ns Nederland"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "core.program",
+    "fields": {
+      "date": "2012-09-12",
+      "party": 6,
+      "section": 2846,
+      "name": "Nederland sterker en socialer"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "core.program",
+    "fields": {
+      "date": "2012-09-12",
+      "party": 7,
+      "section": 2114,
+      "name": "En nu vooruit"
+    }
+  },
+  {
+    "pk": 5,
+    "model": "core.program",
+    "fields": {
+      "date": "2012-09-12",
+      "party": 5,
+      "section": 3226,
+      "name": "Iedereen"
+    }
+  },
+  {
+    "pk": 6,
+    "model": "core.program",
+    "fields": {
+      "date": "2012-09-12",
+      "party": 4,
+      "section": 3363,
+      "name": "Nieuw vertrouwen"
+    }
+  },
+  {
+    "pk": 7,
+    "model": "core.program",
+    "fields": {
+      "date": "2012-09-12",
+      "party": 8,
+      "section": 2289,
+      "name": "Niet doorschuiven maar aanpakken"
+    }
+  },
+  {
+    "pk": 8,
+    "model": "core.program",
+    "fields": {
+      "date": "2012-09-12",
+      "party": 9,
+      "section": 4110,
+      "name": "Voor de verandering"
+    }
+  },
+  {
+    "pk": 9,
+    "model": "core.program",
+    "fields": {
+      "date": "2012-09-12",
+      "party": 10,
+      "section": 3513,
+      "name": "Hou vast aan je idealen. Laat ze niet wegcijferen"
+    }
+  },
+  {
+    "pk": 10,
+    "model": "core.program",
+    "fields": {
+      "date": "2012-09-12",
+      "party": 11,
+      "section": 3682,
+      "name": "50 Plus punten"
+    }
+  },
+  {
+    "pk": 11,
+    "model": "core.program",
+    "fields": {
+      "date": "2012-09-12",
+      "party": 12,
+      "section": 3755,
+      "name": "Daad bij het Woord"
+    }
+  },
+  {
+    "pk": 12,
+    "model": "core.program",
+    "fields": {
+      "date": "1998-01-01",
+      "party": 16,
+      "section": null,
+      "name": "1998 AOV"
+    }
+  },
+  {
+    "pk": 13,
+    "model": "core.program",
+    "fields": {
+      "date": "1998-01-01",
+      "party": 16,
+      "section": null,
+      "name": "1998 AOV"
+    }
+  },
+  {
+    "pk": 14,
+    "model": "core.program",
+    "fields": {
+      "date": "1998-01-01",
+      "party": 16,
+      "section": null,
+      "name": "1998 AOV"
+    }
+  },
+  {
+    "pk": 15,
+    "model": "core.program",
+    "fields": {
+      "date": "1998-01-01",
+      "party": 16,
+      "section": null,
+      "name": "1998 AOV"
+    }
+  },
+  {
+    "pk": 16,
+    "model": "core.program",
+    "fields": {
+      "date": "1998-01-01",
+      "party": 13,
+      "section": null,
+      "name": "1998 CD"
+    }
+  },
+  {
+    "pk": 17,
+    "model": "core.program",
+    "fields": {
+      "date": "1998-01-01",
+      "party": 5,
+      "section": null,
+      "name": "1998 CDA"
+    }
+  },
+  {
+    "pk": 18,
+    "model": "core.program",
+    "fields": {
+      "date": "1998-01-01",
+      "party": 7,
+      "section": null,
+      "name": "1998 D66"
+    }
+  },
+  {
+    "pk": 19,
+    "model": "core.program",
+    "fields": {
+      "date": "1998-01-01",
+      "party": 1,
+      "section": null,
+      "name": "1998 GroenLinks"
+    }
+  },
+  {
+    "pk": 20,
+    "model": "core.program",
+    "fields": {
+      "date": "1998-01-01",
+      "party": 14,
+      "section": null,
+      "name": "1998 GPV"
+    }
+  },
+  {
+    "pk": 21,
+    "model": "core.program",
+    "fields": {
+      "date": "1998-01-01",
+      "party": 6,
+      "section": null,
+      "name": "1998 PvdA"
+    }
+  },
+  {
+    "pk": 22,
+    "model": "core.program",
+    "fields": {
+      "date": "1998-01-01",
+      "party": 15,
+      "section": null,
+      "name": "1998 RPF"
+    }
+  },
+  {
+    "pk": 1,
+    "model": "core.sectiontype",
+    "fields": {
+      "name": "tekst"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "core.sectiontype",
+    "fields": {
+      "name": "numberdlist"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "core.sectiontype",
+    "fields": {
+      "name": "bulletlist"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "core.sectiontype",
+    "fields": {
+      "name": "insert"
+    }
+  },
+  {
+    "pk": 5,
+    "model": "core.sectiontype",
+    "fields": {
+      "name": "intro"
+    }
+  }
+]
