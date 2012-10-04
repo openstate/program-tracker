@@ -23,7 +23,7 @@ urlpatterns = patterns('',
 	url(r'^lda/', include('lda.urls')),
 	url(r'^sicco/', include('sicco.urls')),
 	url(r'^keywords/', include('keywords.urls')),
-#	url(r'^import/', include('importdata.urls')),
+	url(r'^import/', include('importdata.urls')),
 	
 	url(r'^section/(?P<pk>\d+)/$', DetailView.as_view(
 			model=Section,

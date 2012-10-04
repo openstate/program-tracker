@@ -131,7 +131,7 @@ INSTALLED_APPS = (
     'lda',
     'sicco',
     'keywords',
-#    'importdata',
+    'importdata',
     'south',
 )
 
