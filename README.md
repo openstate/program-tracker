@@ -16,7 +16,7 @@ jquery + plugins (included): http://jquery.com/
 installation
 ============
 
-  1. git clone
+  1. git clone  # 121004 inc repository it should say: "git clone https://github.com/hmvp/program-tracker.git"
   2. mkvirutalenv programtracker
   3. workon programtracker
   4. pip install -r requirements.txt
