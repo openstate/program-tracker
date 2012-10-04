@@ -69,16 +69,7 @@ STATICFILES_DIRS = (
 )
 
 # Databases
-DATABASES = {
-    'default': {
-        'ENGINE': DB_ENGINE, # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': DB_NAME,                      # Or path to database file if using sqlite3.
-        'USER': DB_USER,                      # Not used with sqlite3.
-        'PASSWORD': DB_PASSWORD,                  # Not used with sqlite3.
-        'HOST': DB_HOST,                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': DB_PORT,                      # Set to empty string for default. Not used with sqlite3.
-    }
-}
+DATABASES = {'default': dj_database_url.config(default='%s://%s:%s@%s:%s/%s' % (DB_ENGINE, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME))}
 
 # List of finder classes that know how to find static files in
 # various locations.
