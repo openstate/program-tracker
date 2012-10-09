@@ -13,7 +13,7 @@ class Topic(models.Model):
 	name = models.CharField(max_length=200)
 	description = models.TextField()
 	creationdate = models.DateField(auto_now_add=True);
-	source = models.ForeignKey(Source, related_name='topics')
+	source = models.ForeignKey(Source, related_name='topics', blank=True, null=True)
 
 	
 	def __unicode__(self):
@@ -25,7 +25,7 @@ class Topic(models.Model):
 
 class Selection(models.Model):
 	paragraph = models.ForeignKey('core.Paragraph', related_name='selections')
-	source = models.ForeignKey(Source, related_name='selections')
+	source = models.ForeignKey(Source, related_name='selections', blank=True, null=True)
 	startLetter = models.IntegerField()
 	endLetter = models.IntegerField()
 	topic = models.ForeignKey(Topic, related_name='selections')
