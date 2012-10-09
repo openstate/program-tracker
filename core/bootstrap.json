@@ -3,7 +3,7 @@
     "pk": 1,
     "model": "core.party",
     "fields": {
-      "fullName": "GroenLinks",
+      "full_name": "GroenLinks",
       "name": "GroenLinks",
       "pm_id": "nl.p.gl"
     }
@@ -12,7 +12,7 @@
     "pk": 3,
     "model": "core.party",
     "fields": {
-      "fullName": "",
+      "full_name": "",
       "name": "PVV",
       "pm_id": ""
     }
@@ -21,7 +21,7 @@
     "pk": 2,
     "model": "core.party",
     "fields": {
-      "fullName": "",
+      "full_name": "",
       "name": "PvdD",
       "pm_id": ""
     }
@@ -30,7 +30,7 @@
     "pk": 4,
     "model": "core.party",
     "fields": {
-      "fullName": "Socialistische Partij",
+      "full_name": "Socialistische Partij",
       "name": "SP",
       "pm_id": "nl.p.sp"
     }
@@ -39,7 +39,7 @@
     "pk": 5,
     "model": "core.party",
     "fields": {
-      "fullName": "Christen-Democratisch Appel",
+      "full_name": "Christen-Democratisch Appel",
       "name": "CDA",
       "pm_id": "nl.p.cda"
     }
@@ -48,7 +48,7 @@
     "pk": 6,
     "model": "core.party",
     "fields": {
-      "fullName": "Partij van de Arbeid",
+      "full_name": "Partij van de Arbeid",
       "name": "PvdA",
       "pm_id": "nl.p.pvda"
     }
@@ -57,7 +57,7 @@
     "pk": 7,
     "model": "core.party",
     "fields": {
-      "fullName": "Democraten '66",
+      "full_name": "Democraten '66",
       "name": "D66",
       "pm_id": "nl.p.d66"
     }
@@ -66,7 +66,7 @@
     "pk": 8,
     "model": "core.party",
     "fields": {
-      "fullName": "Volkspartij voor Vrijheid en Democratie",
+      "full_name": "Volkspartij voor Vrijheid en Democratie",
       "name": "VVD",
       "pm_id": "nl.p.vvd"
     }
@@ -75,7 +75,7 @@
     "pk": 9,
     "model": "core.party",
     "fields": {
-      "fullName": "",
+      "full_name": "",
       "name": "CU",
       "pm_id": ""
     }
@@ -84,7 +84,7 @@
     "pk": 10,
     "model": "core.party",
     "fields": {
-      "fullName": "",
+      "full_name": "",
       "name": "PvdD",
       "pm_id": ""
     }
@@ -93,7 +93,7 @@
     "pk": 11,
     "model": "core.party",
     "fields": {
-      "fullName": "",
+      "full_name": "",
       "name": "50Plus",
       "pm_id": ""
     }
@@ -102,7 +102,7 @@
     "pk": 12,
     "model": "core.party",
     "fields": {
-      "fullName": "Staatkundig Gereformeerde Partij",
+      "full_name": "Staatkundig Gereformeerde Partij",
       "name": "SGP",
       "pm_id": "nl.p.sgp"
     }
@@ -111,7 +111,7 @@
     "pk": 13,
     "model": "core.party",
     "fields": {
-      "fullName": "Centrum Democraten",
+      "full_name": "Centrum Democraten",
       "name": "CD",
       "pm_id": "nl.p.cd"
     }
@@ -120,7 +120,7 @@
     "pk": 14,
     "model": "core.party",
     "fields": {
-      "fullName": "Gereformeerd Politiek Verbond",
+      "full_name": "Gereformeerd Politiek Verbond",
       "name": "GPV",
       "pm_id": "nl.p.gpv"
     }
@@ -129,7 +129,7 @@
     "pk": 15,
     "model": "core.party",
     "fields": {
-      "fullName": "Reformatorische Politieke Federatie",
+      "full_name": "Reformatorische Politieke Federatie",
       "name": "RPF",
       "pm_id": "nl.p.rpf"
     }
@@ -138,7 +138,7 @@
     "pk": 16,
     "model": "core.party",
     "fields": {
-      "fullName": "Algemeen Ouderen Verbond",
+      "full_name": "Algemeen Ouderen Verbond",
       "name": "AOV",
       "pm_id": "nl.p.aov"
     }
@@ -374,7 +374,7 @@
     "pk": 2,
     "model": "core.sectiontype",
     "fields": {
-      "name": "numberdlist"
+      "name": "numberedlist"
     }
   },
   {
