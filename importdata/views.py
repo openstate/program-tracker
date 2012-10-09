@@ -101,11 +101,11 @@ def upload_program(request, file, program_id):
          
 def addsection(section, data, si, program):
     if "type" in data:
-        type= SectionType.objects.get_or_create(name=data['type'])
+        section_type, was_created = SectionType.objects.get_or_create(name=data['type'])
     else:
-        type = SectionType.objects.get(name="tekst")
+        section_type = SectionType.objects.get(name="tekst")
 
-    s = Section(name=data['head'], type=type, order=si, program=program)
+    s = Section(name=data['head'], type=section_type, order=si, program=program)
     s.save()
     
     i = 1
