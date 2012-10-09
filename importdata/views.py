@@ -103,7 +103,7 @@ def upload_program(request, file, program_id):
          
 def addsection(section, data, si, program):
     if "type" in data:
-        type= SectionType.objects.get(name=data['type'])
+        type= SectionType.objects.get_or_create(name=data['type'])
     else:
         type = SectionType.objects.get(name="tekst")
 
