@@ -77,8 +77,6 @@ def upload_program(request, file, program_id):
     Section.objects.filter(program__isnull=True).delete()
     Section.objects.filter(program = program).delete()
 
-
-
     json_data=open(settings.PROJECT_DIR("programmas") + '/%s.json' % file)
     data = simplejson.load(json_data)
     json_data.close()
@@ -97,7 +95,7 @@ def upload_program(request, file, program_id):
               addsection(s, subdata, si, program)
               si = si + 1
     
-    s.save();
+    s.save()
     return render_to_response('core/program.html')
 
          
