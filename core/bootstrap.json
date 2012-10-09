@@ -397,5 +397,104 @@
     "fields": {
       "name": "intro"
     }
+  },
+  {
+    "pk": 3447,
+    "model": "core.section",
+    "fields": {
+      "name": "GroenLinks sectie 1",
+      "type": 1,
+      "order": 0
+    }
+  },
+  {
+    "pk": 2114,
+    "model": "core.section",
+    "fields": {
+      "name": "D66 sectie 1",
+      "type": 1,
+      "order": 0
+    }
+  },
+  {
+    "pk": 2289,
+    "model": "core.section",
+    "fields": {
+      "name": "VVD sectie 1",
+      "type": 1,
+      "order": 0
+    }
+  },
+  {
+    "pk": 2846,
+    "model": "core.section",
+    "fields": {
+      "name": "PvdA sectie 1",
+      "type": 1,
+      "order": 0
+    }
+  },
+  {
+    "pk": 3226,
+    "model": "core.section",
+    "fields": {
+      "name": "CDA sectie 1",
+      "type": 1,
+      "order": 0
+    }
+  },
+  {
+    "pk": 3363,
+    "model": "core.section",
+    "fields": {
+      "name": "SP sectie 1",
+      "type": 1,
+      "order": 0
+    }
+  },
+  {
+    "pk": 3426,
+    "model": "core.section",
+    "fields": {
+      "name": "PVV sectie 1",
+      "type": 1,
+      "order": 0
+    }
+  },
+  {
+    "pk": 3513,
+    "model": "core.section",
+    "fields": {
+      "name": "PvdD sectie 1",
+      "type": 1,
+      "order": 0
+    }
+  },
+  {
+    "pk": 3682,
+    "model": "core.section",
+    "fields": {
+      "name": "50Plus sectie 1",
+      "type": 1,
+      "order": 0
+    }
+  },
+  {
+    "pk": 3755,
+    "model": "core.section",
+    "fields": {
+      "name": "SGP sectie 1",
+      "type": 1,
+      "order": 0
+    }
+  },
+  {
+    "pk": 4110,
+    "model": "core.section",
+    "fields": {
+      "name": "CU sectie 1",
+      "type": 1,
+      "order": 0
+    }
   }
 ]
