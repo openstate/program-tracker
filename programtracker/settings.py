@@ -1,6 +1,8 @@
 # Django settings for program-tracker project.
 import os
 
+import dj_database_url
+
 PROJECT_DIR = lambda base : os.path.abspath(os.path.join(os.path.dirname(__file__), '../', base).replace('\\','/'))
 
 DEBUG = True
@@ -69,7 +71,8 @@ STATICFILES_DIRS = (
 )
 
 # Databases
-DATABASES = {'default': dj_database_url.config(default='%s://%s:%s@%s:%s/%s' % (DB_ENGINE, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME))}
+# Overide with settings_local or DATABASE_URL environment var
+DATABASES = {'default': dj_database_url.config(default=DB_URL)}
 
 # List of finder classes that know how to find static files in
 # various locations.
