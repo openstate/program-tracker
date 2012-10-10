@@ -77,8 +77,6 @@ def upload_program(request, file, program_id):
     Section.objects.filter(program__isnull=True).delete()
     Section.objects.filter(program = program).delete()
 
-
-
     json_data=open(settings.PROJECT_DIR("programmas") + '/%s.json' % file)
     data = simplejson.load(json_data)
     json_data.close()
@@ -97,17 +95,17 @@ def upload_program(request, file, program_id):
               addsection(s, subdata, si, program)
               si = si + 1
     
-    s.save();
+    s.save()
     return render_to_response('core/program.html')
 
          
 def addsection(section, data, si, program):
     if "type" in data:
-        type= SectionType.objects.get(name=data['type'])
+        section_type, was_created = SectionType.objects.get_or_create(name=data['type'])
     else:
-        type = SectionType.objects.get(name="tekst")
+        section_type = SectionType.objects.get(name="tekst")
 
-    s = Section(name=data['head'], type=type, order=si, program=program)
+    s = Section(name=data['head'], type=section_type, order=si, program=program)
     s.save()
     
     i = 1

@@ -7,27 +7,27 @@ Tracks Election Programs
 core is the base, which handles the programs itself
 topic handles the topics
 
-made with Django 1.3
+made with Django 1.4
 
 Dependencies:
-south: http://south.aeracode.org/
-jquery + plugins (included): http://jquery.com/
+
+- south: http://south.aeracode.org/
+- jquery + plugins (included): http://jquery.com/
+- mkvirtualenv: http://stackoverflow.com/questions/9520887/mkvirtualenv-no-site-packages-command-getting-command-not-found-error
 
 installation
 ============
 
-  1. git clone  
-# 121004 inc repository it should say: "git clone git@github.com:hmvp/program-tracker.git"
-  2. mkvirtualenv programtracker
-# if the command is not found, make sure you add stuff to your .profile and have virtualenv installed. See:
-# http://stackoverflow.com/questions/9520887/mkvirtualenv-no-site-packages-command-getting-command-not-found-error
-  3. workon programtracker
-  4. pip install -r requirements.txt
-  5. cp programtracker/settings\_local.py.example programtracker/settings\_local.py
+  1. `git clone git@github.com:hmvp/program-tracker.git`
+  2. `mkvirtualenv programtracker`
+  3. `workon programtracker`
+  4. `pip install -r requirements.txt`
+  5. `cp programtracker/settings\_local.py.example programtracker/settings\_local.py`
   6. edit your local settings
-  7. ./manage.py syncdb
-  8. ./manage.py migrate
-  9. ./manage.py runserver
+  7. `./manage.py syncdb`
+  8. `./manage.py migrate`
+  9. `./manage.py runserver`
+  10. `./manage.py loaddata core/bootstrap.json`
 
 license
 =======
