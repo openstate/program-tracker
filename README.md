@@ -36,14 +36,14 @@ Programs 2012:
 
 1.  Find the id of the program you want to import
 2.  Find the filename you want to import. This works for the files in /programmas/ where the part without the extension is the part you need to remember.
-3.  Go to <url>/import/add/<filename>/to/<id>/ (e.g. /import/add/cda/to/3/)
+3.  Go to [url]/import/add/[filename]/to/[id]/ (e.g. /import/add/cda/to/3/)
 4.  Repeat for all programs.
 
 Lipschits Data:
 
 1.  Extract the zip into the main folder, now you have a folder named 'LipschitsBooksinXML'
 2.  Note the year you want to import, it is in the filename of the xml files in the LipschitsBooksinXML folder
-3.  Go to /import/add/<year>/
+3.  Go to /import/add/[year]/
 
 license
 =======
