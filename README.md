@@ -27,23 +27,20 @@ installation
   7. `./manage.py syncdb`
   8. `./manage.py migrate`
   9. `./manage.py runserver`
-  10. `./manage.py loaddata core/bootstrap.json`
 
 import
 ======
 
 Programs 2012:
 
-1.  Find the id of the program you want to import
-2.  Find the filename you want to import. This works for the files in /programmas/ where the part without the extension is the part you need to remember.
-3.  Go to [url]/import/add/[filename]/to/[id]/ (e.g. /import/add/cda/to/3/)
-4.  Repeat for all programs.
+1. `./manage.py import_json`
 
 Lipschits Data:
 
-1.  Extract the zip into the main folder, now you have a folder named 'LipschitsBooksinXML'
-2.  Note the year you want to import, it is in the filename of the xml files in the LipschitsBooksinXML folder
-3.  Go to /import/add/[year]/
+1. `./manage.py loaddata core/bootstrap.json`
+2.  Extract the zip into the main folder, now you have a folder named 'LipschitsBooksinXML'
+3.  Note the year you want to import, it is in the filename of the xml files in the LipschitsBooksinXML folder
+4.  Go to /import/add/[year]/
 
 license
 =======
