@@ -14,19 +14,14 @@ def rreduce(node):
             rreduce(sub)
     
         sub = node['sub'][0]
-        if not 'body' in node and len(node['sub']) == 1 and (not 'head' in sub or sub['head'].strip() == ''):
+        if not 'body' in node and (not 'head' in sub or sub['head'].strip() == ''):
             if 'sub' in sub:
+                if len(node['sub']) != 1:
+                    sub['sub'].extend(node['sub'][1:])
                 node['sub'] = sub['sub']
             else:
                 del node['sub']
-            if 'body' in sub:
-                node['body'] = sub['body']
-        elif not 'body' in node and (not 'head' in sub or sub['head'].strip() == ''):
-            if 'sub' in sub:
-                sub['sub'].extend(node['sub'][1:])
-                node['sub'] = sub['sub']
-            else:
-                del node['sub']
+
             if 'body' in sub:
                 node['body'] = sub['body']
 
