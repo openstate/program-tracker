@@ -68,10 +68,12 @@ def upload_lipschits(request, year):
         for p in chapter.getElementsByTagName("p"):
             text = " ".join(t.nodeValue for t in p.childNodes if t.nodeType == t.TEXT_NODE)
             text = process_text(text)
+            
             paragraph = s.paragraphs.create(text=text)
             
             for theme in p.getElementsByTagName('theme'):
                 name = theme.getAttributeNode('id').value
+                name = name.replace('_',' ')
 
                 source, created = Source.objects.get_or_create(name = 'lipschits')
 
@@ -90,4 +92,6 @@ def upload_lipschits(request, year):
     return render_to_response('core/program.html')
     
 def process_text(text):
-    text = re.sub(r'\d+', '', text)
+    text = re.sub(r'^\d+ ', '', text)
+    text = re.sub(r'\u2022$\s*', '', text)
+    return text
