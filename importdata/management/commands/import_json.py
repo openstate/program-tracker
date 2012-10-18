@@ -4,7 +4,7 @@ import datetime
 from django.core.management.base import BaseCommand, CommandError
 from django.conf import settings
 
-from core.models import Section, Program, Party
+from core.models import Section, Program, Party, SectionType
 from importdata.utils import import_json_program
 
 
@@ -20,12 +20,16 @@ class Command(BaseCommand):
             party, was_created = Party.objects.get_or_create(
                 name=party_name
             )
+            section_type, was_created = SectionType.objects.get_or_create(name='tekst')
+
             section, was_created = Section.objects.get_or_create(
-                name=os.path.basename(file)
+                name='dummy',
+                type= section_type
             )
             program, was_created = Program.objects.get_or_create(
                 date=datetime.datetime.now().date(),
                 party=party,
-                name='programma %s' % (party_name, )
+                name='programma %s' % (party_name, ),
+                section=section
             )
             import_json_program(party_name, program.pk)
