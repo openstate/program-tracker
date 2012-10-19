@@ -26,7 +26,8 @@ installation
   6. edit your local settings
   7. `./manage.py syncdb`
   8. `./manage.py migrate`
-  9. `./manage.py runserver`
+  9. `./manage.py loaddata core/bootstrap.json`
+  10. `./manage.py runserver`
 
 import
 ======
@@ -37,10 +38,9 @@ Programs 2012:
 
 Lipschits Data:
 
-1. `./manage.py loaddata core/bootstrap.json`
-2.  Extract the zip into the main folder, now you have a folder named 'LipschitsBooksinXML'
-3.  Note the year you want to import, it is in the filename of the xml files in the LipschitsBooksinXML folder
-4.  Go to /import/add/[year]/
+1.  Extract the zip into the main folder, now you have a folder named 'LipschitsBooksinXML'
+2.  Note the year you want to import, it is in the filename of the xml files in the LipschitsBooksinXML folder
+3.  Go to url: /import/add/[year]/  (beware: this can take several minutes per year!)
 
 license
 =======
