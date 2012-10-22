@@ -29,7 +29,7 @@ class Selection(models.Model):
 	startLetter = models.IntegerField()
 	endLetter = models.IntegerField()
 	topic = models.ForeignKey(Topic, related_name='selections')
-	user = models.ForeignKey('auth.user', blank=True, null=True)
+	user = models.ForeignKey('auth.User', blank=True, null=True)
 	creationdate = models.DateField(auto_now_add=True);
 
 	def __unicode__(self):

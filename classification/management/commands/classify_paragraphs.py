@@ -25,11 +25,10 @@ class Command(BaseCommand):
             print >>sys.stderr, "No classifier by such name found. Use one of : " + classifier_list
             sys.exit(1)
 
-        classifier = classifier_class()
+        classifier = classifier_class(preload=True)
 
         # FIXME: should find a way to only specify not classified paragraphs
         paragraphs = Paragraph.objects.all()
         
         for paragraph in paragraphs:
-            print paragraph
             classifier.classify(paragraph)
