@@ -6,6 +6,8 @@ from django.conf import settings
 
 from core.models import Section, Program, Party, Paragraph
 
+from classification import classes
+
 
 class Command(BaseCommand):
     args = '<classifier name>'
@@ -29,4 +31,5 @@ class Command(BaseCommand):
         paragraphs = Paragraph.objects.all()
         
         for paragraph in paragraphs:
+            print paragraph
             classifier.classify(paragraph)

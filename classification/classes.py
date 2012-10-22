@@ -60,6 +60,10 @@ class AbstractClassifier(object):
 
 
 class LDAClassifier(AbstractClassifier):
+    dictionary = None
+    lda = None
+    splitter = None
+
     def __init__(self):
         print >>sys.stderr, "Initializing lda classifier ..."
 
@@ -89,7 +93,18 @@ class LDAClassifier(AbstractClassifier):
         lda.save(settings.PROJECT_DIR('classification') + '/lda.model')
 
     def classify(self, paragraph, options = {}):
-        raise NotImplementedError
+        if self.dictionary is None:
+            self.dictionary = corpora.Dictionary.load(settings.PROJECT_DIR('classification') + '/lda.dict')
+    	    #pprint(self.dictionary.token2id)
+        if self.lda is None:
+            self.lda = models.ldamodel.LdaModel.load(settings.PROJECT_DIR('classification') + '/lda.model')
+        if self.splitter is None:
+            self.splitter = ParagraphSplitter()
+        doc_lda = self.lda[self.dictionary.doc2bow(self.splitter.split(paragraph))]
+        for topic, probability in doc_lda:
+            print self.dictionary[topic], probability
+        #print doc_lda
+        
 
 AVAILABLE_CLASSIFIERS = {
     u"lda": LDAClassifier,
