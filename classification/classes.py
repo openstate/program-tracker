@@ -66,16 +66,27 @@ class LDAClassifier(AbstractClassifier):
     # options is not random etc.
     def generate_background_model(self, options = {}):
         print >>sys.stderr, "Generating background model ..."
+
+        # generate a list of words ...
         splitter = ParagraphSplitter()
         docs = []
     	for p in Paragraph.objects.all().order_by('id'):
             docs.append(splitter.split(p))
+
     	#pprint(docs)
     	dictionary = corpora.Dictionary(docs)
     	#pprint(dictionary.token2id)
         dictionary.save(settings.PROJECT_DIR('classification') + '/lda.dict')
+
+        # make a corpus and save it ot disk ...
         corpus = ParagraphCorpus(splitter, dictionary)
         corpora.MmCorpus.serialize(settings.PROJECT_DIR('classification') + '/lda.mm', corpus)
+
+        # now train the classifier ...
+        lda = models.ldamodel.LdaModel(
+            corpus=corpus, id2word=dictionary, num_topics=100, update_every=0, passes=20
+        )
+        lda.save(settings.PROJECT_DIR('classification') + '/lda.model')
 
     def classify(self, paragraph, options = {}):
         raise NotImplementedError
