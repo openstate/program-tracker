@@ -6,10 +6,12 @@ from django.conf import settings
 
 from core.models import Section, Program, Party
 
+from classification import classes
 
 class Command(BaseCommand):
-    args = ''
+    args = '<classifier name>'
     help = 'Classifies the sections'
 
     def handle(self, *args, **options):
-        pass
+        classifier_name = args[0]
+        print classifier_name
