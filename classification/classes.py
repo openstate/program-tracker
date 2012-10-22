@@ -22,11 +22,11 @@ class AbstractClassifier(object):
 
 class LDAClassifier(AbstractClassifier):
     def __init__(self):
-        pass
+        print >>sys.stderr, "Initializing lda classifier ..."
 
     # options is not random etc.
     def generate_background_model(self, options = {}):
-        raise NotImplementedError
+        print >>sys.stderr, "Generating background model ..."
 
     def classify(self, paragraph, options = {}):
         raise NotImplementedError

@@ -1,4 +1,5 @@
 import os
+import sys
 import datetime
 
 from django.core.management.base import BaseCommand, CommandError
@@ -10,8 +11,20 @@ from classification import classes
 
 class Command(BaseCommand):
     args = '<classifier name>'
-    help = 'Classifies the sections'
+    help = 'Generates a background model for the classifier'
 
     def handle(self, *args, **options):
         classifier_name = args[0]
-        print classifier_name
+        try:
+            classifier_class = classes.AVAILABLE_CLASSIFIERS[classifier_name]
+        except KeyError, e:
+            classifier_class = None
+
+        if classifier_class is None:
+            classifier_list = u','.join(classes.AVAILABLE_CLASSIFIERS)
+            print >>sys.stderr, "No classifier by such name found. Use one of : " + classifier_list
+            sys.exit(1)
+
+        classifier = classifier_class()
+        classifier.generate_background_model()
+            
