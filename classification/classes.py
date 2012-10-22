@@ -54,9 +54,14 @@ class LDAClassifier(AbstractClassifier):
         print >>sys.stderr, "Generating background model ..."
         splitter = WordSplitter()
         docs = []
-    	for p in Paragraph.objects.all().order_by('id')[:10]:
+    	for p in Paragraph.objects.all().order_by('id'):
             docs.append(splitter.split(p))
     	pprint(docs)
+    	dictionary = corpora.Dictionary(docs)
+    	pprint(dictionary.token2id)
+        dictionary.save(settings.PROJECT_DIR('classification') + '/lda.dict')
+        corpus = [dictionary.doc2bow(doc) for doc in docs]
+        corpora.MmCorpus.serialize(settings.PROJECT_DIR('classification') + '/lda.mm', corpus)
 
     def classify(self, paragraph, options = {}):
         raise NotImplementedError
