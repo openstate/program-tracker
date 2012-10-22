@@ -132,7 +132,7 @@ class LDAClassifier(AbstractClassifier):
             self._link_paragraph_to_topic(
                 paragraph=paragraph,
                 source_name="lda",
-                topic_names=[self.dictionary(topic)]
+                topic_names=[self.dictionary[topic]]
             )
         
 

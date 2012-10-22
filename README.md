@@ -42,6 +42,16 @@ Lipschits Data:
 2.  Note the year you want to import, it is in the filename of the xml files in the LipschitsBooksinXML folder
 3.  Go to url: /import/add/[year]/  (beware: this can take several minutes per year!)
 
+topics
+======
+
+To classify topics, perform the following steps:
+
+LDA:
+
+1. `./manage.py generate_background_model lda`
+2. `./manage.py classify_paragraphs lda`
+
 license
 =======
 	This file is part of Program-tracker.
