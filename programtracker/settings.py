@@ -127,7 +127,9 @@ INSTALLED_APPS = (
     'keywords',
     'importdata',
     'south',
-    'classification'
+    'classification',
+    'mptt',
+
 )
 
 # A sample logging configuration. The only tangible logging

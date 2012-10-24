@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 
+{% load mptt_tags %}
+{% load markup %}
+
 {% block title %}Het programma {{ program.name }}{% endblock %}
 
 {% block content %}
@@ -8,7 +11,33 @@
 		
 			<p><em>Selecteer een stuk tekst om een onderwerp op te geven</em></p>
 		
-			{% include "core/section.html" with section=program.section party=program.party.name head=1 %}
+			{% recursetree program.sections.all %}
+				<div class="{{ node.type.name }}">
+					<h{{node.level|add:"1"}} class="head" id="s{{node.id}}">
+						{{ node.name }}  {% if node.level = 0 %} ({{ program.party }}) {% endif %}
+					</h{{node.level|add:"1"}}>
+					
+					{% for paragraph in node.paragraphs.all %}
+						<div id="{{paragraph.id}}" class="p">
+							{{ paragraph.text|markdown }}
+							<div class="topics">
+								{% for selection in paragraph.selections.all %}
+							       
+										<div style="background-color: {{selection.source.color}}" 
+											class="topic" id="{{selection.id}}" 
+											topic:start="{{selection.startLetter}}"
+											topic:end="{{selection.endLetter}}" 
+											title="{{selection.topic.description}}">
+											<a href="/topic/{{selection.topic.id}}/">{{selection.topic.name}}</a>
+										</div>
+								{% endfor %}
+							</div>
+						</div>
+					{% endfor %}
+					
+					{{ children }}
+				</div>
+			{% endrecursetree %}
 		</div>
 		<div id="topiclabel">
 			Vul hier een label in: <br />
@@ -27,12 +56,16 @@
 
 {% block submenu %}
 <ul>
-	{% for section in program.section.subsections.all %}
-		{% comment %} hack om recursieve templates mogelijk te maken {% endcomment %}
-		{% with template_name="core/menu_section.html" %}
-			{% include template_name  with section=section head=1 %}
-		{% endwith %}
-	{% endfor %}
+	{% recursetree program.sections.all %}
+	 <li>
+            <a href="#s{{node.id}}">{{ node.name }}</a>
+            {% if not node.is_leaf_node %}
+                <ul class="children">
+                    {{ children }}
+                </ul>
+            {% endif %}
+        </li>
+	{% endrecursetree %}
 </ul>
 
 {% endblock %}
