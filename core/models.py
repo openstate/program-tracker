@@ -1,4 +1,5 @@
 from django.db import models
+from mptt.models import MPTTModel, TreeForeignKey
 
 # Create your models here.
 class Party(models.Model):
@@ -16,7 +17,6 @@ class Program(models.Model):
 	date = models.DateField()
 	party = models.ForeignKey(Party, related_name='programs')
 	name = models.CharField(max_length=200, default='')
-	section = models.OneToOneField('core.Section', related_name='program_root', null=True, on_delete=models.SET_NULL)
 	
 	class Meta:
 		get_latest_by = "date"
@@ -34,15 +34,18 @@ class SectionType(models.Model):
 	def __unicode__(self):
 		return self.name
 
-class Section(models.Model):
+class Section(MPTTModel):
 	name = models.CharField(max_length=200)
 	program = models.ForeignKey(Program, blank=True, null=True, related_name='sections')
-	parent = models.ForeignKey('self', blank=True, null=True, related_name='subsections')
+	parent = TreeForeignKey('self', null=True, blank=True, related_name='subsections')
 	type = models.ForeignKey(SectionType, default=1)
 	order = models.IntegerField(default=0)
 	
 	class Meta:
 		ordering = ['order']
+
+	class MPTTMeta:
+		order_insertion_by = ['order']
 
 	def __unicode__(self):
 		return u'Sectie %s uit %s' % (self.name, self.program)

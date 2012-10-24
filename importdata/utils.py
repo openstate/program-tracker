@@ -67,7 +67,7 @@ def addsection(section, data, si, program):
     else:
         section_type = SectionType.objects.get(name="tekst")
 
-    s = Section(name=data['head'], type=section_type, order=si, program=program)
+    s = Section(name=data['head'], parent=section, type=section_type, order=si, program=program)
     s.save()
 
     i = 1
@@ -81,8 +81,6 @@ def addsection(section, data, si, program):
          for subdata in data['sub']:
               addsection(s, subdata, si, program)
               si = si + 1
-
-    section.subsections.add(s)
 
 
 def import_lipschits(year):
