@@ -18,7 +18,7 @@ Dependencies:
 installation
 ============
 
-  1. `git clone git@github.com:hmvp/program-tracker.git`
+  1. `git clone git@github.com:openstate/program-tracker.git`
   2. `mkvirtualenv programtracker`
   3. `workon programtracker`
   4. `pip install -r requirements.txt`
