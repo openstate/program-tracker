@@ -34,13 +34,20 @@ import
 
 Programs 2012:
 
-1. `./manage.py import_json`
+1. `./manage.py import_json 2012 9 14`
 
 Lipschits Data:
 
 1.  Extract the zip into the main folder, now you have a folder named 'LipschitsBooksinXML'
-2.  Note the year you want to import, it is in the filename of the xml files in the LipschitsBooksinXML folder
-3.  Go to url: /import/add/[year]/  (beware: this can take several minutes per year!)
+2.  Rename the 2010 xml file so it matches the others (VP_2010.party-topicnr-content.xml)
+3.  Note the year you want to import, it is in the filename of the xml files in the LipschitsBooksinXML folder
+4.  `./manage.py import_lipschits 1986`  (beware: this can take several minutes per year!)
+
+Bitman Data (not necessary):
+
+1. get the bitmandata.json file from dropbox
+2. `./manage.py loaddata /bitmandata.json`
+3. Go to the website to get json dumps from programs
 
 topics
 ======

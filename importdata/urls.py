@@ -12,6 +12,4 @@ urlpatterns = patterns('importdata.views',
 	url(r'^$', ListView.as_view(
 			queryset=Partij.objects.all().order_by('-partij'))),
 	url(r'^(?P<pk>\d+)/$', 'partij'),
-	url(r'^add/(?P<file>\w+)/to/(?P<program_id>\d+)/$', 'upload_program'),
-	url(r'^add/(?P<year>\d+)/$', 'upload_lipschits'),
 )

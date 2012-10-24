@@ -3,6 +3,7 @@ Django==1.4.1
 django-debug-toolbar==0.9.4
 dj-database-url==0.2.1
 Pattern==2.4
-MySQL-python==1.2.3
+#MySQL-python==1.2.3
 Markdown==2.2.0
+numpy==1.6.2
 gensim==0.8.6
