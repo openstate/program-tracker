@@ -94,6 +94,7 @@ def import_lipschits(year):
         pm_id = chapter.getAttributeNode('party').value
         party, created = Party.objects.get_or_create(pm_id=pm_id, defaults={"full_name": pm_id, "name": pm_id})
         program = Program(party=party, name = "Programma %s" % year, date = ('%s-01-01' % year))
+        print party, program
         type = SectionType.objects.get(name="tekst")
         program.save()
         s = Section.objects.create(name = "Programma %s" % year, type=type, order=1, program=program)
