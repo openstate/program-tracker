@@ -160,3 +160,5 @@ CACHES = {
         'LOCATION': 'cache_cache',
     }
 }
+
+LOGIN_REDIRECT_URL = '/'
