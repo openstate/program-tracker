@@ -34,7 +34,7 @@ import
 
 Programs 2012:
 
-1. `./manage.py import_json 2012 9 14`
+1. `./manage.py import_json 2012-09-14`
 
 Lipschits Data:
 
