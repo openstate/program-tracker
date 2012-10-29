@@ -23,7 +23,7 @@ $(document).ready(function(){
 	$('div.p').mouseup(function(){
 	
 		var myRange = $(document).getRangeAt();
-		
+
 		if (myRange.collapsed)
 			return;
 	
