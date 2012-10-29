@@ -128,11 +128,13 @@ class LDAClassifier(AbstractClassifier):
         doc_lda = self.lda[self.dictionary.doc2bow(self.splitter.split(paragraph))]
         #print doc_lda
         if len(doc_lda) > 1:
-            topic, prob = doc_lda[0] # take the highest one
+            topic_id, prob = doc_lda[0] # take the highest one
+            topic = self.lda.show_topic(topic_id)
+            topic_name = topic[0][1]
             self._link_paragraph_to_topic(
                 paragraph=paragraph,
                 source_name="lda",
-                topic_names=[self.dictionary[topic]]
+                topic_names=[topic_name]
             )
         
 
