@@ -22,13 +22,19 @@ $(document).ready(function(){
 	// do selection
 	$('div.p').mouseup(function(){
 	
-		var myRange = $(document).getRangeAt();
+		var myRange = rangy.getSelection();
 
 		if (myRange.collapsed)
 			return;
-	
-		$('input[name=start]').val(myRange.startOffset);
-		$('input[name=end]').val(myRange.endOffset);
+
+    	var selection = myRange.saveCharacterRanges(this); 
+	    var startOffset = selection[0].range.start;
+	    var endOffset = selection[0].range.end;
+
+        //console.log('start:' + startOffset + '   -- end : ' + endOffset);
+
+		$('input[name=start]').val(startOffset);
+		$('input[name=end]').val(endOffset);
 		$('input[name=pid]').val(this.id);
 		$(document).wrapSelection().addClass('highlight')
 		$('.highlight').last().append($('#topiclabel'));
