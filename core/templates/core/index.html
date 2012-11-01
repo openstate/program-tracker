@@ -6,9 +6,20 @@
 <h1>Programma's</h1>
 {% if program_list %}
     <ul>
-    {% for program in program_list %}
-        <li><a href="/program/{{ program.id }}/">{{ program.party }}: {{program.name}} ({{ program.date }})</a></li>
-    {% endfor %}
+    {% regroup program_list|dictsort:"date" by date as program_list_grouped %}
+		{% for date in program_list_grouped %}
+		    <li>{{ date.grouper }}
+		    <ul>
+		        {% for program in date.list %}
+		          <li>
+		          	<a href="/program/{{ program.id }}/">
+		          		{{ program.party }}: {{program.name}}
+		          	</a>
+		          </li>
+		        {% endfor %}
+		    </ul>
+		    </li>
+		{% endfor %}
     </ul>
 {% else %}
     <p>No parties are available.</p>
