@@ -208,7 +208,7 @@ class LDAClassifier(AbstractClassifier):
     splitter = PatternParagraphSplitter()
   
     def get_docs(self):
-        return Paragraph.objects.all().order_by('id')[0:1000]       
+        return Paragraph.objects.all().order_by('id')
 
     def generate_dictionary(self, docs):
         dictionary = super(LDAClassifier, self).generate_dictionary(docs)
