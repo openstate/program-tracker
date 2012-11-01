@@ -1,5 +1,5 @@
 import os
-from datetime import date
+from datetime import datetime
 
 from django.core.management.base import BaseCommand, CommandError
 from django.conf import settings
@@ -9,18 +9,17 @@ from importdata.utils import import_json_program
 
 
 class Command(BaseCommand):
-    args = '<year month day>'
+    args = '<yyyy-mm-dd>'
     help = 'Imports json programmes from "programmas" directory'
 
     def handle(self, *args, **options):
-        if len(args) != 3:
+        if len(args) != 1:
             raise CommandError('Not the right amount of arguments')
         try:
-            election_date = date(int(args[0]),int(args[1]),int(args[2]))
+            election_date = datetime.strptime(args[0], '%Y-%m-%d').date()
         except Exception as exception:
             raise CommandError('Not the correct date format: %s' % exception)
 
-    
         files = os.listdir(settings.PROJECT_DIR("programmas"))
         for file in files:
             print file
