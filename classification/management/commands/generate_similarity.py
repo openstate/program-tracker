@@ -1,17 +1,17 @@
 import os
-from datetime import date
+import sys
+import datetime
 
 from django.core.management.base import BaseCommand, CommandError
 from django.conf import settings
 
-from core.models import Section, Program, Party, Paragraph
+from core.models import Section, Program, Party
 
 from classification import classes
 
-
 class Command(BaseCommand):
     args = '<classifier name>'
-    help = 'Classifies the paragraph'
+    help = 'Generates a background model for the classifier'
 
     def handle(self, *args, **options):
         classifier_name = args[0]
@@ -27,8 +27,8 @@ class Command(BaseCommand):
 
         classifier = classifier_class(preload=True)
 
-        # FIXME: should find a way to only specify not classified paragraphs
-        paragraphs = Paragraph.objects.filter(section__program__date__gt=date(2012,1,1))
+        paragraphs = Paragraph.objects.filter()
         
         for paragraph in paragraphs:
-            classifier.classify(paragraph)
+            classifier.query(paragraph, 1)
+            
