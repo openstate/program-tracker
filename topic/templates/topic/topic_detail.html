@@ -8,14 +8,15 @@
 			<h1>{{topic.name}}</h1>
 			<p>{{topic.description}}</p>
 			{% for selection in topic.selections.all %}
-				<h3><a href="/program/{{selection.paragraph.section.program_root.id}}{{selection.paragraph.section.parent.program_root.id}}{{selection.paragraph.section.parent.parent.program_root.id}}{{selection.paragraph.section.parent.parent.parent.program_root.id}}/#{{selection.paragraph.id}}">
-					{{ selection.paragraph.section.program_root.party.name}}
-					{{ selection.paragraph.section.parent.program_root.party.name}}
-					{{ selection.paragraph.section.parent.parent.program_root.party.name}}
-					{{ selection.paragraph.section.parent.parent.parent.program_root.party.name}}
+				<h3><a href="/program/{{selection.paragraph.section.program.id}}/#{{selection.paragraph.id}}">
+					{{ selection.paragraph.section.program.party.name}}
 					</a>
 				</h3>
-				<p>{{ selection.prefix }} <span class="highlight">{{ selection.text }}</span>{{ selection.postfix }}</p>
+				<p>
+					{{ selection.prefix }} 
+					<span class="highlight">{{ selection.text }}</span>
+					{{ selection.postfix }}
+				</p>
 			{% endfor %}
 		</div>
 	{% else %}
