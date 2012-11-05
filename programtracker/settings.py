@@ -129,6 +129,7 @@ INSTALLED_APPS = (
     'south',
     'classification',
     'mptt',
+    'api'
 )
 
 # A sample logging configuration. The only tangible logging
