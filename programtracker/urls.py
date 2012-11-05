@@ -17,7 +17,8 @@ urlpatterns = patterns('',
 	url(r'^$', ListView.as_view(
 		queryset=Program.objects.all().order_by('-party'),
 		template_name='core/index.html')),
-	
+
+    url(r'^api/v1/', include('api.urls')),
 	url(r'^program/', include('core.urls')),
 	url(r'^topic/', include('topic.urls')),
 	url(r'^lda/', include('lda.urls')),
@@ -39,6 +40,7 @@ urlpatterns = patterns('',
 	
 	url(r'^accounts/login/$',  login),
 	url(r'^accounts/logout/$', logout),
+
 )
 
 urlpatterns += staticfiles_urlpatterns()
