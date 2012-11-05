@@ -21,6 +21,7 @@ class BaseApi(object):
 class PartyMixin(object):
     def serialize_party(self, party_obj):
         return {
+            'id': party_obj.pk,
             'name': party_obj.full_name,
             'short_name': party_obj.name,
             'pm_id': party_obj.pm_id
@@ -30,9 +31,34 @@ class PartyMixin(object):
 class ProgramMixin(PartyMixin):
     def serialize_program(self, program_obj):
         return {
+            'id': program_obj.pk,
             'name': program_obj.name,
             'date': _encode_datetime(program_obj.date),
             'party': self.serialize_party(program_obj.party)
+        }
+
+
+class SectionTypeMixin(object):
+    def serialize_sectiontype(self, sectiontype_obj):
+        return {
+            'id': sectiontype_obj.pk,
+            'name': sectiontype_obj.name
+        }
+
+
+class SectionMixin(ProgramMixin, SectionTypeMixin):
+    def serialize_section(self, section_obj):
+        if section_obj.program is not None:
+            program_serialized = self.serialize_program(section_obj.program)
+        else:
+            program_serialized = None
+
+        return {
+            'id': section_obj.pk,
+            'type': self.serialize_sectiontype(section_obj.type),
+            'program': program_serialized,
+            # FIXME: sections and subsections
+            'order': section_obj.order
         }
 
 
