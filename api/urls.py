@@ -9,5 +9,6 @@ urlpatterns = patterns('api.views',
 	# url(r'^verkiezingen/', include('verkiezingen.foo.urls')),
 
 	#url(r'^getTopics/$', 'getTopics')
-	url(r'^$', 'home')
+	url(r'^$', 'home'),
+	url(r'^parties/$', 'parties'),
 )
