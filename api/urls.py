@@ -11,4 +11,5 @@ urlpatterns = patterns('api.views',
 	#url(r'^getTopics/$', 'getTopics')
 	url(r'^$', 'home'),
 	url(r'^parties/$', 'parties'),
+	url(r'^programs/$', 'programs'),
 )
