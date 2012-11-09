@@ -5,3 +5,5 @@
 *.pyc
 */settings_local.py
 database.db
+*.sublime-*
+*.sqlite
