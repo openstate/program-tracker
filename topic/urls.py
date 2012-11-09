@@ -10,7 +10,8 @@ urlpatterns = patterns('topic.views',
 
 	url(r'^addLabel/$', 'addLabel'),
 	url(r'^$', ListView.as_view(
-			queryset=Topic.objects.all().order_by('-name'))),
+			queryset=Topic.objects.all().order_by('-source', 'name'),
+			template_name='topic/index.html')),
 	url(r'^(?P<pk>\d+)/$', DetailView.as_view(model=Topic), name='topic_view'),
 	url(r'^getTopics/$', 'getTopics')
 )
