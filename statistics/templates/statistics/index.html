@@ -1,0 +1,41 @@
+
+{% extends "base.html" %}
+
+{% block title %}stats{% endblock %}
+
+{% block content %}
+<h1>Partijen</h1>
+  {% if parties %}
+    <ul>
+    {% for party in parties %}
+        <li><a href="/stat/party/{{ party.id }}/">{{ party.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No parties are available.</p>
+{% endif %}
+
+<h1>Jaren</h1>
+  {% if parties %}
+    <ul>
+    {% for date in years %}
+        <li><a href="/stat/year/{{ date.date.year }}/">{{ date.date.year }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No parties are available.</p>
+{% endif %}
+
+<h1>Topics</h1>
+  {% if parties %}
+    <ul>
+    {% for topic in topics %}
+        <li><a href="/stat/topic/{{ topic.id }}/">{{ topic.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No parties are available.</p>
+{% endif %}
+
+{% endblock %}
+

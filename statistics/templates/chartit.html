@@ -1,0 +1,20 @@
+
+{% extends "base.html" %}
+
+{% block title %}stats{% endblock %}
+
+{% block content %}
+<h1>stats</h1>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" >
+      head.js("{{ STATIC_URL }}js/jquery-1.8.0.min.js", "{{ STATIC_URL }}js/highcharts.js","{{ STATIC_URL }}chartit/js/chartloader.js")
+    </script>
+    
+        {% load chartit %}
+            {{ rainpivchart|load_charts:"chart_div" }}
+    
+   <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+
+{% endblock %}
+

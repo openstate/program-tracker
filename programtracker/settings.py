@@ -129,6 +129,8 @@ INSTALLED_APPS = (
     'south',
     'classification',
     'mptt',
+    'statistics',
+    'chartit',
 )
 
 # A sample logging configuration. The only tangible logging
