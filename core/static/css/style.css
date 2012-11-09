@@ -9,7 +9,7 @@ html, body
 
 #content 
 {
-	margin-left: 170px;
+	margin-left: 210px;
 	background:white;
 	border-radius: 5px;
 	box-shadow: 4px 4px 16px 1px black;
@@ -87,8 +87,30 @@ html, body
 
 #sidebar 
 {
-	width: 160px;
+	width: 200px;
 	float:left;
+}
+
+#sidebar ul 
+{
+	padding-left: 0;
+	list-style: none;
+}
+
+#sidebar ul ul
+{
+	padding-left: 1em;
+	list-style: disc;
+}
+
+#sidebar ul ul ul
+{
+	list-style: circle;
+}
+
+#sidebar ul ul ul ul
+{
+	list-style: disc;
 }
 
 .highlight
