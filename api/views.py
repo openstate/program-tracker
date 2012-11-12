@@ -58,4 +58,4 @@ def selections(request, program_id):
     program = get_object_or_404(Program, pk=program_id)
     selection_api = SelectionApi(program)
     selections = selection_api.serialize_selections()
-    return JSONResponse.build([], request)
+    return JSONResponse.build(selections, request)

@@ -31,6 +31,11 @@ class TopicMixin(SourceMixin):
 
 class SelectionMixin(TopicMixin):
     def serialize_selection(self, selection_obj):
+        if selection_obj.user is not None:
+            username = selection_obj.user.username
+        else:
+            username = None
+
         return {
             'id': selection_obj.pk,
             'paragraph_id': selection_obj.paragraph_id,
@@ -38,7 +43,7 @@ class SelectionMixin(TopicMixin):
             'start': selection_obj.startLetter,
             'end': selection_obj.endLetter,
             'topic': self.serialize_topic(selection_obj.topic),
-            'user': selection_obj.user.username,
+            'user': username,
             'created': _encode_datetime(selection_obj.creationdate)
         }
 
