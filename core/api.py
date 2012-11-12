@@ -91,3 +91,18 @@ class SectionTypeApi(BaseApi, SectionTypeMixin):
             section_types.append(self.serialize_section_type(section_type_obj))
         
         return section_types
+
+class SectionApi(BaseApi, SectionTypeMixin, SectionMixin):
+    program = None
+
+    def __init__(self, program):
+        self.program = program
+
+    def serialize_sections(self):
+        section_objs = self.program.sections
+        sections = []
+        
+        for section_obj in section_objs:
+            sections.append(self.serialize_section(section_obj))
+        
+        return sections
