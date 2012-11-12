@@ -125,3 +125,6 @@ class SectionApi(BaseApi, SectionMixin):
             sections.append(self.serialize_section(section_obj))
         
         return sections
+
+class ParagraphApi(BaseApi, ParagraphMixin):
+    pass

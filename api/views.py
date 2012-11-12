@@ -6,7 +6,7 @@ from django.utils import simplejson
 from core.models import Party, Program, Paragraph, SectionType, Section
 from topic.models import Selection, Topic, Source
 
-from core.api import PartyApi, ProgramApi, SectionTypeApi, SectionApi
+from core.api import PartyApi, ProgramApi, SectionTypeApi, SectionApi, ParagraphApi
 from topic.api import SourceApi, TopicApi, SelectionApi
 
 
@@ -59,3 +59,9 @@ def selections(request, program_id):
     selection_api = SelectionApi(program)
     selections = selection_api.serialize_selections()
     return JSONResponse.build(selections, request)
+
+def paragraph(request, paragraph_id):
+    paragraph_obj = get_object_or_404(Paragraph, pk=paragraph_id)
+    paragraph_api = ParagraphApi()
+    paragraph = paragraph_api.serialize_paragraph(paragraph_obj)
+    return JSONResponse.build(paragraph, request)
