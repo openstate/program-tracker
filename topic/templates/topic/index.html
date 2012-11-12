@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Programma's{% endblock %}
+
+{% block content %}
+<h1>Topics</h1>
+{% if topic_list %}
+    <ul>
+    {% regroup topic_list by source as topic_list_grouped %}
+		{% for source in topic_list_grouped %}
+		    <li>{{ source.grouper }}
+		    <ul>
+		        {% for topic in source.list %}
+		          <li>
+		          	<a href="/topic/{{ topic.id }}/">
+		          		{{ topic.name }}
+		          	</a>
+		          </li>
+		        {% endfor %}
+		    </ul>
+		    </li>
+		{% endfor %}
+    </ul>
+{% else %}
+    <p>No parties are available.</p>
+{% endif %}
+{% endblock %}
