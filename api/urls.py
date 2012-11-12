@@ -12,4 +12,5 @@ urlpatterns = patterns('api.views',
 	url(r'^$', 'home'),
 	url(r'^parties/$', 'parties'),
 	url(r'^programs/$', 'programs'),
+	url(r'^section_types/$', 'section_types'),
 )

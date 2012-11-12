@@ -6,7 +6,7 @@ from django.utils import simplejson
 from core.models import Party, Program, Paragraph, SectionType, Section
 from topic.models import Selection, Topic, Source
 
-from core.api import PartyApi, ProgramApi
+from core.api import PartyApi, ProgramApi, SectionTypeApi
 
 
 class JSONResponse(object):
@@ -32,5 +32,9 @@ def programs(request):
     programs = program_api.serialize_programs()
     return JSONResponse.build(programs, request)
 
+def section_types(request):
+    section_type_api = SectionTypeApi()
+    section_types = section_type_api.serialize_section_types()
+    return JSONResponse.build(section_types, request)
 
     

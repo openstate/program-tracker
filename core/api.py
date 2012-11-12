@@ -81,3 +81,13 @@ class ProgramApi(BaseApi, ProgramMixin):
             programs.append(self.serialize_program(program_obj))
         
         return programs
+
+class SectionTypeApi(BaseApi, SectionTypeMixin):
+    def serialize_section_types(self):
+        section_type_objs = SectionType.objects.order_by('name').all()
+        section_types = []
+        
+        for section_type_obj in section_type_objs:
+            section_types.append(self.serialize_section_type(section_type_obj))
+        
+        return section_types
