@@ -51,7 +51,8 @@ class ParagraphMixin(object):
         return {
             'id': paragraph_obj.pk,
             'text': paragraph_obj.text,
-            'order': paragraph_obj.order
+            'order': paragraph_obj.order,
+            'section_id': paragraph_obj.section_id
         }
 
 

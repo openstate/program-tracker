@@ -12,10 +12,12 @@ urlpatterns = patterns('api.views',
 	url(r'^$', 'home'),
 	url(r'^parties/$', 'parties'),
 	url(r'^programs/$', 'programs'),
+	url(r'^programs/(?P<program_id>\d+)/$', 'program'),
 	url(r'^programs/(?P<program_id>\d+)/sections/$', 'sections'),
 	url(r'^programs/(?P<program_id>\d+)/selections/$', 'selections'),
 	url(r'^section_types/$', 'section_types'),
 	url(r'^sources/$', 'sources'),
 	url(r'^topics/$', 'topics'),
 	url(r'^paragraphs/(?P<paragraph_id>\d+)/$', 'paragraph')
+	url(r'^sections/(?P<section_id>\d+)/$', 'section')
 )

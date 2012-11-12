@@ -65,3 +65,15 @@ def paragraph(request, paragraph_id):
     paragraph_api = ParagraphApi()
     paragraph = paragraph_api.serialize_paragraph(paragraph_obj)
     return JSONResponse.build(paragraph, request)
+
+def section(request, section_id):
+    section_obj = get_object_or_404(Section, pk=section_id)
+    section_api = SectionApi(None) # FIXME: ugly hack, but works
+    section = section_api.serialize_section(section_obj)
+    return JSONResponse.build(section, request)
+
+def program(request, program_id):
+    program_obj = get_object_or_404(Program, pk=program_id)
+    program_api = ProgramApi()
+    program = program_api.serialize_program(program_obj)
+    return JSONResponse.build(program, request)
