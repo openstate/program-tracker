@@ -66,12 +66,16 @@ class SectionMixin(ProgramMixin, SectionTypeMixin, ParagraphMixin):
         for paragraph_obj in section_obj.paragraphs.all():
             paragraphs_serialized.append(self.serialize_paragraph(paragraph_obj))
 
+        subsection_serialized = []
+        for subsection_obj in section_obj.subsections.all():
+            subsection_serialized.append(self.serialize_section(subsection_obj))
+
         return {
             'id': section_obj.pk,
             'type': self.serialize_sectiontype(section_obj.type),
             'program': program_serialized,
             # FIXME: sections and subsections
-            'subsections': [],
+            'subsections': subsection_serialized,
             'order': section_obj.order,
             'paragraphs': paragraphs_serialized
         }
@@ -114,7 +118,7 @@ class SectionApi(BaseApi, SectionMixin):
         self.program = program
 
     def serialize_sections(self):
-        section_objs = self.program.sections.all()
+        section_objs = self.program.sections.filter(parent__isnull=True).all()
         sections = []
         
         for section_obj in section_objs:
