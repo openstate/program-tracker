@@ -41,3 +41,25 @@ class SelectionMixin(TopicMixin):
             'user': selection_obj.user.username,
             'created': _encode_datetime(selection_obj.creationdate)
         }
+
+
+class SourceApi(BaseApi, SourceMixin):
+    def serialize_sources(self):
+        source_objs = Source.objects.order_by('name').all()
+        sources = []
+        
+        for source_obj in source_objs:
+            sources.append(self.serialize_source(source_obj))
+        
+        return sources
+
+
+class TopicApi(BaseApi, TopicMixin):
+    def serialize_topics(self):
+        topic_objs = Topic.objects.order_by('name').all()
+        topics = []
+        
+        for topic_obj in topic_objs:
+            topics.append(self.serialize_topic(topic_obj))
+        
+        return topics

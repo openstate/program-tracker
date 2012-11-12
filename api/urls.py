@@ -14,4 +14,6 @@ urlpatterns = patterns('api.views',
 	url(r'^programs/$', 'programs'),
 	url(r'^programs/(?P<program_id>\d+)/sections/$', 'sections'),
 	url(r'^section_types/$', 'section_types'),
+	url(r'^sources/$', 'sources'),
+	url(r'^topics/$', 'topics'),
 )
