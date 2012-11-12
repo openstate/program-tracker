@@ -7,7 +7,7 @@ from core.models import Party, Program, Paragraph, SectionType, Section
 from topic.models import Selection, Topic, Source
 
 from core.api import PartyApi, ProgramApi, SectionTypeApi, SectionApi
-from topic.api import SourceApi, TopicApi
+from topic.api import SourceApi, TopicApi, SelectionApi
 
 
 class JSONResponse(object):
@@ -53,3 +53,9 @@ def topics(request):
     topic_api = TopicApi()
     topics = topic_api.serialize_topics()
     return JSONResponse.build(topics, request)
+
+def selections(request, program_id):
+    program = get_object_or_404(Program, pk=program_id)
+    selection_api = SelectionApi(program)
+    selections = selection_api.serialize_selections()
+    return JSONResponse.build([], request)

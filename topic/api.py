@@ -63,3 +63,20 @@ class TopicApi(BaseApi, TopicMixin):
             topics.append(self.serialize_topic(topic_obj))
         
         return topics
+
+class SelectionApi(BaseApi, SelectionMixin):
+    program = None
+
+    def __init__(self, program):
+        self.program = program
+    
+    def serialize_selections(self):
+        selection_objs = Selection.objects.filter(
+            paragraph__section__program_id=self.program.pk
+        ).select_related().all()
+        selections = []
+        
+        for selection_obj in selection_objs:
+            selections.append(self.serialize_selection(selection_obj))
+        
+        return selections
