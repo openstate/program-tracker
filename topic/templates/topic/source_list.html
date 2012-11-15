@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Topic sources{% endblock %}
+
+{% block content %}
+<h1>Topic sources</h1>
+{% if source_list %}
+    <ul>
+    {% for source in source_list %}
+        <li><a href="{% url statistics.views.sourceindex source.id %}">{{ source.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No sources are available.</p>
+{% endif %}
+{% endblock %}

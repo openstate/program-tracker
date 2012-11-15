@@ -8,7 +8,7 @@
   {% if parties %}
     <ul>
     {% for party in parties %}
-        <li><a href="/stat/party/{{ party.id }}/">{{ party.name }}</a></li>
+        <li><a href="{% url statistics.views.party source.pk party.id  %}">{{ party.name }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
@@ -19,7 +19,7 @@
   {% if parties %}
     <ul>
     {% for date in years %}
-        <li><a href="/stat/year/{{ date.date.year }}/">{{ date.date.year }}</a></li>
+        <li><a href="{% url statistics.views.year source.pk date.date.year %}">{{ date.date.year }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
@@ -30,7 +30,7 @@
   {% if parties %}
     <ul>
     {% for topic in topics %}
-        <li><a href="/stat/topic/{{ topic.id }}/">{{ topic.name }}</a></li>
+        <li><a href="{% url statistics.views.topic source.pk topic.id %}">{{ topic.name }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
