@@ -131,6 +131,7 @@ INSTALLED_APPS = (
     'mptt',
     'statistics',
     'chartit',
+    'api',
 )
 
 # A sample logging configuration. The only tangible logging

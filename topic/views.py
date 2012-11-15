@@ -41,7 +41,7 @@ def addLabel(request):
 
 
 def getTopics(request):
-	if request.is_ajax():
+	if not request.is_ajax():
 		term = request.GET.get('term', '')
 		topics = list(Topic.objects.filter(name__istartswith=term).order_by('name').values_list('name', flat=True))
 		
@@ -50,4 +50,4 @@ def getTopics(request):
 	else:
 		message = "No XHR"
 		mimetype = 'text/html'
-	return HttpResponse(message, mimetype)	
+	return HttpResponse(message, mimetype)
