@@ -12,7 +12,4 @@ gensim==0.8.6
 wsgiref==0.1.2
 MySQL-python==1.2.3
 django-chartit==0.1
-<<<<<<< HEAD
 simplejson==2.6.2
-=======
->>>>>>> f209b428183cb946d73ad47b19a808be9d3ba58f
