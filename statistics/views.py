@@ -25,6 +25,7 @@ def sourceindex(request, source):
 
 
 def calc(request, source):
+    Program.objects.all().delete()
     def do_work():
         for p in Program.objects.all().annotate(
                         selection_count = Count('sections__paragraphs__selections')).annotate(
@@ -89,7 +90,7 @@ def party(request, source, pk):
             series_options =
               [{'options':{
                   'type': 'line',
-                  'stacking': True},
+                  'stacking': False},
                 'terms':[
                  'selection']}],
             chart_options =

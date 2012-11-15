@@ -9,7 +9,7 @@
 			<p>{{topic.description}}</p>
 			{% for selection in topic.selections.all %}
 				<h3><a href="/program/{{selection.paragraph.section.program.id}}/#{{selection.paragraph.id}}">
-					{{ selection.paragraph.section.program.party.name}}
+					{{ selection.paragraph.section.program.party.name}}: {{ selection.paragraph.section.program.name}}
 					</a>
 				</h3>
 				<p>
