@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load markup %}
+
 {% block title %}Topic {{topic.name}}{% endblock %}
 
 {% block content %}
@@ -15,7 +17,7 @@
 					{{ selection.paragraph.section.parent.parent.parent.program_root.party.name}}
 					</a>
 				</h3>
-				<p>{{ selection.prefix }} <span class="highlight">{{ selection.text }}</span>{{ selection.postfix }}</p>
+				<p class="selected" topic:start="{{selection.startLetter}}" topic:end="{{selection.endLetter}}">{{ selection.paragraph.text|markdown }} </p>
 			{% endfor %}
 		</div>
 	{% else %}
