@@ -104,8 +104,11 @@ def import_lipschits(year):
         for p in chapter.getElementsByTagName("p"):
             text = " ".join(t.nodeValue for t in p.childNodes if t.nodeType == t.TEXT_NODE)
             text = process_text(text)
+
+            section = Section.objects.create(name = text.split(' ')[0], type=type, order=1, program=program, parent=s)
+
             
-            paragraph = s.paragraphs.create(text=text)
+            paragraph = section.paragraphs.create(text=text)
             
             for theme in p.getElementsByTagName('theme'):
                 name = theme.getAttributeNode('id').value
@@ -120,9 +123,6 @@ def import_lipschits(year):
                 Selection.objects.create(
                     source = source,
                     paragraph = paragraph,
-                    startLetter = 0,
-                    endLetter = -1,
-                    user = None,
                     topic = t,)
 
   

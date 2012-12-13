@@ -20,19 +20,20 @@ def sourceindex(request, source):
 
     years = Program.objects.all().filter(stats__topic__source=source).values('date').distinct()
     parties = Party.objects.all()
-    topics = Topic.objects.all().filter(source=source).exclude(stats__isnull=True)
+    topics = Topic.objects.all().filter(source=source).exclude(stats__isnull=True).order_by('name')
     return render_to_response('statistics/index.html', {'parties': parties, 'topics': topics, 'years': years, 'source': source})
 
 
 def calc(request, source):
-    Program.objects.all().delete()
+    ProgramStat.objects.filter(topic__source__pk=source).delete()
     def do_work():
         for p in Program.objects.all().annotate(
                         selection_count = Count('sections__paragraphs__selections')).annotate(
                         paragraph_count = Count('sections__paragraphs')):
             topics = Topic.objects.filter(selections__paragraph__section__program=p, source__pk=source).distinct().annotate(paragraph_count = Count('selections__paragraph'))
             topic_count = topics.count()
-            program_word_count = sum(map(lambda x: len(x.text.split(' ')), Paragraph.objects.filter(section__program=p).distinct()))
+            program_word_count_paragraphs = sum(map(lambda x: len(x.text.split(' ')), Paragraph.objects.filter(section__program=p).distinct()))
+            program_word_count_selections = sum(map(lambda x: len(x.text.split(' ')), Paragraph.objects.filter(section__program=p, selections__isnull=False).distinct()))
             for t in topics:  
                 paragraphs = Paragraph.objects.filter(section__program=p, selections__topic=t).distinct()
                 word_count = sum(map(lambda x: len(x.text.split(' ')), paragraphs))
@@ -48,8 +49,9 @@ def calc(request, source):
                         selection_count=p.selection_count, 
                         paragraph_count=p.paragraph_count, 
                         topic_paragraph_count=t.paragraph_count, 
-                        program_word_count=program_word_count,
-                        word_nm = float(word_count) / float(program_word_count),
+                        program_word_count_selections=program_word_count_selections,
+                        program_word_count_paragraphs=program_word_count_paragraphs,
+                        word_nm = float(word_count) / float(program_word_count_selections),
                         paragraph_nm = float(count) / float(p.paragraph_count),
                         selection_nm = float(count) / float(p.selection_count),
                         ).save()
@@ -77,7 +79,7 @@ def party(request, source, pk):
                 'count': {'func':Sum('count'), 'legend_by': 'topic__name', },
                 'word': {'func':Sum('word_nm'), 'legend_by': 'topic__name', },
                 'paragraph': {'func':Sum('paragraph_nm'), 'legend_by': 'topic__name', },
-                'selection': {'func':Sum('selection_nm'), 'legend_by': 'topic__name', },
+                'selection': {'func':Sum('word_nm'), 'legend_by': 'topic__name', },
                 }
                 }
              ],
